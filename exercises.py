@@ -70,16 +70,37 @@ weather_advice()
 # Exercise 5: What's the Season?
 
 
-def determine_season(month):
+def determine_season():
     month = input("Enter the month of the year (Jan - Dec): ").title()
     day = int(input("Enter the day of the month: "))
-    
-    if month in ["february", "march", "april", "may"]:
-        print("is spring")
-    elif month in ["june", "july", "august"]:
-        print("is summer")
-    else:
-        print("is winter")
+
+    if (
+        (month == "December" and day >= 21) or
+        (month in ["January", "February"]) or
+        (month == "March" and day <= 19)
+    ):
+        print("Winter")
+
+    elif (
+        (month == "March" and day >= 20) or
+        (month in ["April", "May"]) or
+        (month == "June" and day <= 20)
+    ):
+        print("Spring")
+
+    elif (
+        (month == "June" and day >= 21) or
+        (month in ["July", "August"]) or
+        (month == "September" and day <= 21)
+    ):
+        print("Summer")
+
+    elif (
+        (month == "September" and day >= 22) or
+        (month in ["October", "November"]) or
+        (month == "December" and day <= 20)
+    ):
+        print("Fall")
 
 
-determine_season("april")
+determine_season()
